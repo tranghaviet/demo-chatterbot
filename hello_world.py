@@ -1,4 +1,7 @@
 from chatterbot import ChatBot
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 chatbot = ChatBot(
     'Ron Obvious',
@@ -24,6 +27,7 @@ chatbot = ChatBot(
     ],
     input_adapter="chatterbot.input.TerminalAdapter",
     output_adapter="chatterbot.output.TerminalAdapter",
+    filters=["chatterbot.filters.RepetitiveResponseFilter"]
 )
 
 # Train based on the english corpus
